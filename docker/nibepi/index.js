@@ -1176,7 +1176,7 @@ function startMQTT(host,port,user,pass) {
         password: mqtt_password, //the password required by your broker, if any
         will: { topic: mqtt_publish_topic, payload: mqtt_client_id + ' disconnected', qos: 1, retain: false }
     };
-    mqtt_client = mqtt.connect('mqtt://' + mqtt_host, mqtt_Options);
+    mqtt_client = mqtt.connect('mqtts://' + mqtt_host, mqtt_Options);
     
     mqtt_client.on('connect', function () {
         nibeEmit.emit('fault',{from:"MQTT",message:'MQTT Brokern är ansluten'});
