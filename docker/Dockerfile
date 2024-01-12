@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:12
 
 # Copy source to container
 RUN mkdir -p /usr/app/src
@@ -56,6 +56,7 @@ unzip \
 xz-utils \
 zlib1g-dev && \
 rm -rf /var/lib/apt/lists/*
+RUN usermod -aG dialout,tty node
 USER node
 COPY nibepi /usr/app/src
 
